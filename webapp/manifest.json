@@ -140,6 +140,7 @@
           "name": "sap.suite.ui.generic.template.AnalyticalListPage",
           "list": true,
           "settings": {
+            "defaultFilterMode": "compact",
             "condensedTableLayout": true,
             "showGoButtonOnFilterBar": true,
             "autoHide": true,
