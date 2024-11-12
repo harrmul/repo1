@@ -1,0 +1,172 @@
+{
+  "_version": "1.37.0",
+  "sap.app": {
+    "id": "zddsd001reportapproval",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:alp",
+      "version": "1.14.1",
+      "toolsId": "afa8d1fc-bc9e-48b0-afdd-f2b385b6e58f"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/sap/opu/odata/sap/ZSB_SD001/",
+        "type": "OData",
+        "settings": {
+          "annotations": [
+            "ZSB_SD001_VAN",
+            "annotation"
+          ],
+          "localUri": "localService/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      },
+      "ZSB_SD001_VAN": {
+        "uri": "/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='ZSB_SD001_VAN',Version='0001')/$value/",
+        "type": "ODataAnnotation",
+        "settings": {
+          "localUri": "localService/ZSB_SD001_VAN.xml"
+        }
+      },
+      "annotation": {
+        "type": "ODataAnnotation",
+        "uri": "annotations/annotation.xml",
+        "settings": {
+          "localUri": "annotations/annotation.xml"
+        }
+      }
+    },
+    "crossNavigation": {
+      "inbounds": {
+        "ZSO_SD001-display": {
+          "semanticObject": "ZSO_SD001",
+          "action": "display",
+          "title": "{{flpTitle}}",
+          "subTitle": "{{flpSubtitle}}",
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          }
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.96.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.ushell": {},
+        "sap.f": {},
+        "sap.ui.comp": {},
+        "sap.ui.generic.app": {},
+        "sap.suite.ui.generic.template": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "zddsd001reportapproval.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "defaultBindingMode": "TwoWay",
+          "defaultCountMode": "Inline",
+          "refreshAfterChange": false,
+          "metadataUrlParams": {
+            "sap-value-list": "none"
+          }
+        }
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      }
+    },
+    "resources": {
+      "css": []
+    },
+    "routing": {
+      "config": {},
+      "routes": [],
+      "targets": {}
+    }
+  },
+  "sap.ui.generic.app": {
+    "_version": "1.3.0",
+    "settings": {
+      "forceGlobalRefresh": false,
+      "objectPageHeaderType": "Dynamic",
+      "considerAnalyticalParameters": true,
+      "showDraftToggle": false
+    },
+    "pages": {
+      "AnalyticalListPage|ZDD_SD001": {
+        "entitySet": "ZDD_SD001",
+        "component": {
+          "name": "sap.suite.ui.generic.template.AnalyticalListPage",
+          "list": true,
+          "settings": {
+            "defaultFilterMode": "compact",
+            "condensedTableLayout": true,
+            "showGoButtonOnFilterBar": true,
+            "autoHide": true,
+            "smartVariantManagement": false,
+            "tableSettings": {
+              "multiSelect": false,
+              "type": "AnalyticalTable"
+            },
+            "keyPerformanceIndicators": {}
+          }
+        },
+        "pages": {
+          "ObjectPage|ZDD_SD001": {
+            "entitySet": "ZDD_SD001",
+            "defaultLayoutTypeIfExternalNavigation": "MidColumnFullScreen",
+            "component": {
+              "name": "sap.suite.ui.generic.template.ObjectPage"
+            },
+            "pages": {}
+          }
+        }
+      }
+    }
+  },
+  "sap.fiori": {
+    "registrationIds": [],
+    "archeType": "analytical"
+  }
+}
